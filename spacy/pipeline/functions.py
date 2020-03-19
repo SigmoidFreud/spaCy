@@ -22,6 +22,7 @@ def merge_noun_chunks(doc):
     if not doc.is_parsed:
         return doc
     with doc.retokenize() as retokenizer:
+        print(doc.noun_chunks)
         for np in doc.noun_chunks:
             attrs = {"tag": np.root.tag, "dep": np.root.dep}
             retokenizer.merge(np, attrs=attrs)
